@@ -18,7 +18,14 @@
 	    	//Drop and email 
 	    	echo "File uploaded";
 
-		    $sentEmail = mail('sonu.bimra@gmail.com', 'The Magical Subject Line', 'The Magical Message Body');
+	    	$to      = 'sonu.bimra@gmail.com';
+		    $subject = 'Candidate uploaded resume.';
+		    $message = 'The Magical Message Body';
+		    $headers = 'From: sonu.bimr@gmail.com' . "\r\n" .
+		        'Reply-To: jatinder.bimra@gmail.com' . "\r\n" .
+		        'X-Mailer: PHP/' . phpversion();
+
+		    $sentEmail = mail($to, $subject, $message, $headers);
 
 		    if($sentEmail){
 		    	echo " & Mail sent succesfully!!! Hurray :)";
